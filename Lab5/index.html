@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel Hunt Game</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; }
+        .controls { margin: 20px; }
+        #game-field { 
+            position: relative; 
+            width: 100%; 
+            height: 500px; 
+            background: #f9f9f9; 
+            border-top: 2px solid #ccc;
+            overflow: hidden;
+            display: none; /* Ховаємо до старту */
+        }
+        #pixel {
+            position: absolute;
+            cursor: pointer;
+            display: none;
+        }
+        .stats { font-size: 1.2em; margin: 10px; text-align: left; padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Pixel Hunt</h1>
+    
+    <div id="setup" class="controls">
+        <label>Choose difficulty:</label>
+        <select id="difficulty">
+            <option value="">--Please choose an option--</option>
+            <option value="lazy">Lazy</option>
+            <option value="normal">Normal</option>
+            <option value="catchme">Catch me if you can</option>
+        </select>
+
+        <label>Choose color:</label>
+        <select id="color">
+            <option value="">--Please choose an option--</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+
+        <button id="start-btn">Start</button>
+    </div>
+
+    <div id="game-info" style="display:none;">
+        <div class="stats">Score: <span id="score">0</span></div>
+        <div class="stats">Time left for click: <span id="timer">0</span></div>
+    </div>
+
+    <div id="game-field">
+        <div id="pixel"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
