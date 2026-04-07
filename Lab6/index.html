@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Out</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Lights Out</h1>
+        <div class="info">
+            <p>Кроків: <span id="moves-counter">0</span></p>
+            <p>Мінімум для перемоги: <span id="min-moves">-</span></p>
+        </div>
+        
+        <div id="grid" class="grid"></div>
+        
+        <div class="controls">
+            <button id="btn-restart">Restart</button>
+            <button id="btn-new-game">New Game</button>
+        </div>
+        <p id="win-message" class="hidden">Ви перемогли!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
