@@ -40,12 +40,12 @@ body {
 }
 
 .cell.is-on {
-    background-color: #ffd700; /* Жовтий - увімкнено */
+    background-color: #ffd700; 
     box-shadow: 0 0 10px #ffd700;
 }
 
 .cell.is-off {
-    background-color: #333; /* Темний - вимкнено */
+    background-color: #333; 
 }
 
 .controls button {
