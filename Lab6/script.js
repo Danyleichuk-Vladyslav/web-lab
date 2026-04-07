@@ -21,9 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error("Помилка завантаження рівнів:", error));
 
     function startNewGame() {
-     
-        const randomIndex = Math.floor(Math.random() * levels.length);
-        currentLevel = levels[randomIndex];
+        const availableLevels = currentLevel 
+            ? levels.filter(level => level.id !== currentLevel.id) 
+            : levels;
+
+        const randomIndex = Math.floor(Math.random() * availableLevels.length);
+        currentLevel = availableLevels[randomIndex];
+        
         resetGame();
     }
 
