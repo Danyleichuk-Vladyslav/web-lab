@@ -1,0 +1,16 @@
+[
+  {
+    "id": 301,
+    "name": "Яєчня з беконом",
+    "shortname": "eggs-bacon",
+    "description": "Класичний англійський сніданок.",
+    "price": "120"
+  },
+  {
+    "id": 302,
+    "name": "Вівсянка",
+    "shortname": "oatmeal",
+    "description": "Корисна каша з ягодами та медом.",
+    "price": "60"
+  }
+]
