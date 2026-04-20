@@ -12,7 +12,7 @@ function loadCategories() {
             data.forEach(cat => {
                 html += `<a href="#" class="list-group-item" onclick="loadItems('${cat.shortname}')">${cat.name}</a>`;
             });
-            // Додаємо посилання "Specials" для випадкової категорії [cite: 19, 20]
+            
             const randomCat = data[Math.floor(Math.random() * data.length)].shortname;
             html += `<a href="#" class="list-group-item list-group-item-warning" onclick="loadItems('${randomCat}')">Specials</a>`;
             html += '</div>';
