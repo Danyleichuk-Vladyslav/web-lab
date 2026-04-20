@@ -1,0 +1,16 @@
+[
+  {
+    "id": 201,
+    "name": "Чізкейк",
+    "shortname": "cheesecake",
+    "description": "Ніжний сирний десерт на пісочній основі.",
+    "price": "85"
+  },
+  {
+    "id": 202,
+    "name": "Брауні",
+    "shortname": "brownie",
+    "description": "Насичений шоколадний пиріг з горіхами.",
+    "price": "70"
+  }
+]
