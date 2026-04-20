@@ -1,28 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
- const catalogBtn = document.getElementById('load-catalog');
-    e.preventDefault();
-    fetch('categories.json')
-        .then(res => res.json())
-        .then(categories => {
-            let html = '<h2>Категорії меню</h2><div class="list-group">';
-            
-            categories.forEach(cat => {
-                html += `<a href="#" class="list-group-item list-group-item-action" 
-                         onclick="loadCategoryItems('${cat.shortname}')">${cat.name}</a>`;
-            });
-            
-            
-            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-            const randomShortname = randomCategory.shortname;
-            
-            html += `<a href="#" class="list-group-item list-group-item-warning" 
-                     onclick="loadCategoryItems('${randomShortname}')">✨ Specials (${randomCategory.name})</a>`;
-            
-            html += '</div>';
-            document.getElementById('main-content').innerHTML = html;
-        });
-});
+    
+  
+    const catalogBtn = document.getElementById('load-catalog');
 
+    if (catalogBtn) {
+        catalogBtn.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            loadCategories();   
+        });
+    } else {
+        console.error("Кнопку з id='load-catalog' не знайдено в HTML!");
+    }
+});
 function loadCategories() {
     fetch('categories.json')
         .then(response => response.json())
