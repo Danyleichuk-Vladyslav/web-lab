@@ -1,4 +1,5 @@
-document.getElementById('catalog-link').addEventListener('click', function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('catalog-link').addEventListener('click', function(e) 
     e.preventDefault();
     fetch('categories.json')
         .then(res => res.json())
