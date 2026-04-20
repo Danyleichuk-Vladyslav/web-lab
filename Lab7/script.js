@@ -3,7 +3,7 @@ document.getElementById('load-catalog').addEventListener('click', function(e) {
     loadCategories();
 });
 
-// Функція для завантаження списку категорій
+
 function loadCategories() {
     fetch('categories.json')
         .then(response => response.json())
@@ -20,7 +20,7 @@ function loadCategories() {
         });
 }
 
-// Функція для завантаження товарів конкретної категорії [cite: 25, 26, 27]
+
 function loadItems(categoryShortname) {
     fetch(`${categoryShortname}.json`)
         .then(response => response.json())
