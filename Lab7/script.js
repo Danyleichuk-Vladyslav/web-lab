@@ -1,8 +1,26 @@
-document.getElementById('load-catalog').addEventListener('click', function(e) {
+document.getElementById('catalog-link').addEventListener('click', function(e) {
     e.preventDefault();
-    loadCategories();
+    fetch('categories.json')
+        .then(res => res.json())
+        .then(categories => {
+            let html = '<h2>Категорії меню</h2><div class="list-group">';
+            
+            categories.forEach(cat => {
+                html += `<a href="#" class="list-group-item list-group-item-action" 
+                         onclick="loadCategoryItems('${cat.shortname}')">${cat.name}</a>`;
+            });
+            
+            
+            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+            const randomShortname = randomCategory.shortname;
+            
+            html += `<a href="#" class="list-group-item list-group-item-warning" 
+                     onclick="loadCategoryItems('${randomShortname}')">✨ Specials (${randomCategory.name})</a>`;
+            
+            html += '</div>';
+            document.getElementById('main-content').innerHTML = html;
+        });
 });
-
 
 function loadCategories() {
     fetch('categories.json')
