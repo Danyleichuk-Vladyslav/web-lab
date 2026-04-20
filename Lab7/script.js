@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('catalog-link').addEventListener('click', function(e) 
+ const catalogBtn = document.getElementById('load-catalog');
     e.preventDefault();
     fetch('categories.json')
         .then(res => res.json())
