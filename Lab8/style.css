@@ -1,24 +1,22 @@
-
+/* Базові налаштування */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f0f2f5; 
+    background: #e9ecef; /* Більш насичений сірий фон, щоб виділити білі блоки */
     color: #333;
 }
 
-
+/* Навігація - Контрастна */
 .navbar {
-    background: rgba(44, 62, 80, 0.95); 
-    padding: 10px 5%;
+    background: #212529; /* Глибокий темний колір */
+    padding: 12px 5%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
-    min-height: 50px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
 }
 
 .nav-menu {
@@ -30,33 +28,43 @@ body {
 }
 
 .nav-menu a {
-    color: #ffffff; 
+    color: #f8f9fa;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .hamburger {
     display: none;
-    background: #3498db; 
+    background: #007bff;
     border: none;
     color: white;
-    font-size: 1.8rem;
-    padding: 5px 15px;
-    border-radius: 5px;
+    font-size: 1.5rem;
+    padding: 5px 12px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-
+/* Карусель - ФІКС ВІДОБРАЖЕННЯ */
 .carousel-container {
     position: relative;
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 800px;
+    margin: 50px auto; /* Відступ, щоб не налізало на меню */
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border-radius: 12px;
     background: #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* КРИТИЧНО: Приховуємо всі слайди за замовчуванням */
+.carousel-slide {
+    display: none; 
+    width: 100%;
+}
+
+/* Показуємо ТІЛЬКИ активний слайд */
+.carousel-slide.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .carousel-slide img {
@@ -66,7 +74,12 @@ body {
     display: block;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
 
+/* Кнопки керування */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -74,31 +87,45 @@ body {
     background: rgba(0,0,0,0.6);
     color: white;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.5rem;
     z-index: 10;
-    transition: background 0.3s;
+}
+.next { right: 15px; }
+.prev { left: 15px; }
+
+/* Адаптивні секції */
+.content-wrapper {
+    text-align: center;
+    padding: 30px;
 }
 
-.prev:hover, .next:hover { background: rgba(52, 152, 219, 0.8); }
-.next { right: 20px; }
-.prev { left: 20px; }
-
-
-.content-wrapper { padding: 40px 20px; text-align: center; }
-h2 { color: #2c3e50; margin-bottom: 30px; font-size: 1.8rem; }
-.image-grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-.image-grid img { 
-    width: 320px; 
-    border-radius: 12px; 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    border: 4px solid white;
+h2 {
+    background: #fff;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
 }
 
+.image-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
+.image-grid img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* Мобільні налаштування */
 @media (max-width: 767px) {
     .hamburger { display: block; }
     .nav-menu {
@@ -107,14 +134,14 @@ h2 { color: #2c3e50; margin-bottom: 30px; font-size: 1.8rem; }
         top: 100%;
         left: 0;
         width: 100%;
-        background: #2c3e50;
+        background: #212529;
         flex-direction: column;
-        padding: 20px 0;
+        padding: 15px 0;
     }
     .nav-menu.show { display: flex; }
     .large-only { display: none; }
     .medium-only { display: block; }
-    .carousel-slide img { height: 300px; }
+    .carousel-slide img { height: 280px; }
 }
 
 @media (min-width: 768px) {
