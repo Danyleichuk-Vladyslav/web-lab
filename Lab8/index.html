@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лабораторна робота №8</title>
+    <title>Лабораторна робота №8 - Данилейчук</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,22 +11,22 @@
     <nav class="navbar">
         <button class="hamburger" id="hamburger">☰</button>
         <ul class="nav-menu" id="nav-menu">
-            <li><span class="icon">🏠</span><a href="#">Головна</a></li>
-            <li><span class="icon">📁</span><a href="#">Проєкти</a></li>
-            <li><span class="icon">☕</span><a href="#">Кафе</a></li>
-            <li><span class="icon">📞</span><a href="#">Контакти</a></li>
+            <li><a href="#">🏠 Головна</a></li>
+            <li><a href="#">📂 Проєкти</a></li>
+            <li><a href="#">☕ Retro Café</a></li>
+            <li><a href="#">📧 Контакти</a></li>
         </ul>
     </nav>
 
     <div class="carousel-container">
         <div class="carousel-slide active">
-            <img src="https://placehold.co/800x400?text=Slide+1" alt="Slide 1">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000" alt="Slide 1">
         </div>
         <div class="carousel-slide">
-            <img src="https://placehold.co/800x400?text=Slide+2" alt="Slide 2">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1000" alt="Slide 2">
         </div>
         <div class="carousel-slide">
-            <img src="https://placehold.co/800x400?text=Slide+3" alt="Slide 3">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1000" alt="Slide 3">
         </div>
 
         <button class="prev" id="prevBtn">&#10094;</button>
@@ -39,18 +39,23 @@
         </div>
     </div>
 
-    <section class="content-blocks">
-        <div class="large-only">
-            <h3>Тільки для Large-пристроїв (>=768px)</h3>
-            <img src="https://placehold.co/200x150?text=Large+1" alt="L1">
-            <img src="https://placehold.co/200x150?text=Large+2" alt="L2">
-        </div>
-        <div class="medium-only">
-            <h3>Тільки для Medium-пристроїв (<768px)</h3>
-            <img src="https://placehold.co/150x100?text=Med+1" alt="M1">
-            <img src="https://placehold.co/150x100?text=Med+2" alt="M2">
-        </div>
-    </section>
+    <main class="content-wrapper">
+        <section class="large-only">
+            <h2>Тільки для Large-пристроїв (≥768px)</h2>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1517817748493-49ec54a32465?w=400" alt="L1">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400" alt="L2">
+            </div>
+        </section>
+
+        <section class="medium-only">
+            <h2>Тільки для Medium-пристроїв (<768px)</h2>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400" alt="M1">
+                <img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=400" alt="M2">
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
