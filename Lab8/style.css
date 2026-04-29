@@ -1,53 +1,147 @@
-/* Базові стилі */
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
 
-/* Навігація */
-.navbar { background: #333; padding: 1rem; color: white; }
-.nav-menu { display: flex; list-style: none; gap: 20px; transition: all 0.5s ease; }
-.nav-menu a { color: white; text-decoration: none; }
-.hamburger { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
-
-/* Карусель */
-.carousel-container { position: relative; max-width: 800px; margin: 20px auto; overflow: hidden; }
-.carousel-slide { display: none; animation: slideIn 0.8s ease-in-out; }
-.carousel-slide.active { display: block; }
-.carousel-slide img { width: 100%; border-radius: 8px; }
-
-@keyframes slideIn {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
-.next { right: 0; }
-.dots-container { text-align: center; margin-top: 10px; }
-.dot { height: 12px; width: 12px; background: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; margin: 0 5px; }
-.dot.active { background: #333; }
+\
+.navbar {
+    background: #2c3e50;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    transition: 0.4s ease;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+
+.carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.carousel-slide {
+    display: none;
+    animation: slideEffect 0.8s ease;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+@keyframes slideEffect {
+    from { opacity: 0.5; transform: scale(1.05); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.next { right: 15px; }
+.prev { left: 15px; }
+
+.dots-container {
+    text-align: center;
+    padding: 15px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #3498db;
+    transform: scale(1.2);
+}
 
 /* Адаптивність */
-@media (max-width: 767px) { /* Medium */
+.content-wrapper { text-align: center; padding: 20px; }
+.image-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.image-grid img { width: 300px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* Мобільна версія (Medium < 768px) */
+@media (max-width: 767px) {
     .hamburger { display: block; }
-    .nav-menu { 
-        display: none; 
-        flex-direction: column; 
-        background: #444; 
-        position: absolute; 
-        width: 100%; 
-        left: 0; 
-        padding: 10px;
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #34495e;
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
     }
-    .nav-menu.show { display: flex; animation: slideDown 0.4s ease; }
+    .nav-menu.show { display: flex; animation: fadeIn 0.3s ease; }
     .large-only { display: none; }
     .medium-only { display: block; }
+    .carousel-slide img { height: 250px; }
 }
 
-@media (min-width: 768px) { /* Large */
+/* Десктоп (Large >= 768px) */
+@media (min-width: 768px) {
     .medium-only { display: none; }
     .large-only { display: block; }
     .nav-menu { display: flex !important; }
 }
 
-@keyframes slideDown {
+@keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
