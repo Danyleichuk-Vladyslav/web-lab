@@ -1,15 +1,14 @@
-/* Базові налаштування */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: #e9ecef; /* Більш насичений сірий фон, щоб виділити білі блоки */
+    background: #e9ecef; 
     color: #333;
 }
 
-/* Навігація - Контрастна */
+
 .navbar {
-    background: #212529; /* Глибокий темний колір */
+    background: #212529; 
     padding: 12px 5%;
     display: flex;
     align-items: center;
@@ -44,24 +43,21 @@ body {
     cursor: pointer;
 }
 
-/* Карусель - ФІКС ВІДОБРАЖЕННЯ */
 .carousel-container {
     position: relative;
     max-width: 800px;
-    margin: 50px auto; /* Відступ, щоб не налізало на меню */
+    margin: 50px auto; 
     overflow: hidden;
     border-radius: 12px;
     background: #fff;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
-/* КРИТИЧНО: Приховуємо всі слайди за замовчуванням */
 .carousel-slide {
     display: none; 
     width: 100%;
 }
 
-/* Показуємо ТІЛЬКИ активний слайд */
 .carousel-slide.active {
     display: block;
     animation: fadeIn 0.5s ease-in-out;
@@ -79,7 +75,6 @@ body {
     to { opacity: 1; }
 }
 
-/* Кнопки керування */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -96,7 +91,6 @@ body {
 .next { right: 15px; }
 .prev { left: 15px; }
 
-/* Адаптивні секції */
 .content-wrapper {
     text-align: center;
     padding: 30px;
@@ -125,7 +119,6 @@ h2 {
     transition: 0.3s;
 }
 
-/* Мобільні налаштування */
 @media (max-width: 767px) {
     .hamburger { display: block; }
     .nav-menu {
