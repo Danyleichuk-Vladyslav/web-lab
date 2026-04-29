@@ -1,0 +1,53 @@
+/* Базові стилі */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+
+/* Навігація */
+.navbar { background: #333; padding: 1rem; color: white; }
+.nav-menu { display: flex; list-style: none; gap: 20px; transition: all 0.5s ease; }
+.nav-menu a { color: white; text-decoration: none; }
+.hamburger { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
+
+/* Карусель */
+.carousel-container { position: relative; max-width: 800px; margin: 20px auto; overflow: hidden; }
+.carousel-slide { display: none; animation: slideIn 0.8s ease-in-out; }
+.carousel-slide.active { display: block; }
+.carousel-slide img { width: 100%; border-radius: 8px; }
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
+.next { right: 0; }
+.dots-container { text-align: center; margin-top: 10px; }
+.dot { height: 12px; width: 12px; background: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; margin: 0 5px; }
+.dot.active { background: #333; }
+
+/* Адаптивність */
+@media (max-width: 767px) { /* Medium */
+    .hamburger { display: block; }
+    .nav-menu { 
+        display: none; 
+        flex-direction: column; 
+        background: #444; 
+        position: absolute; 
+        width: 100%; 
+        left: 0; 
+        padding: 10px;
+    }
+    .nav-menu.show { display: flex; animation: slideDown 0.4s ease; }
+    .large-only { display: none; }
+    .medium-only { display: block; }
+}
+
+@media (min-width: 768px) { /* Large */
+    .medium-only { display: none; }
+    .large-only { display: block; }
+    .nav-menu { display: flex !important; }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
