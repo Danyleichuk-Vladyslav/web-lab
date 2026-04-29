@@ -1,4 +1,3 @@
-// --- МЕНЮ ГАМБУРГЕР ---
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 
@@ -6,16 +5,24 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('show');
 });
 
-// --- КАРУСЕЛЬ ---
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => navMenu.classList.remove('show'));
+});
+
+
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const dots = document.querySelectorAll('.dot');
+const totalSlides = slides.length;
 
 function showSlide(index) {
-    if (index >= slides.length) currentSlide = 0;
-    else if (index < 0) currentSlide = slides.length - 1;
+    
+    if (index >= totalSlides) currentSlide = 0;
+    else if (index < 0) currentSlide = totalSlides - 1;
     else currentSlide = index;
 
+    
     slides.forEach(s => s.classList.remove('active'));
     dots.forEach(d => d.classList.remove('active'));
 
@@ -23,8 +30,6 @@ function showSlide(index) {
     dots[currentSlide].classList.add('active');
 }
 
-// Автоматичне перемикання (п. 1.2.3)
-let autoSlide = setInterval(() => showSlide(currentSlide + 1), 5000);
 
 document.getElementById('nextBtn').addEventListener('click', () => {
     showSlide(currentSlide + 1);
@@ -36,7 +41,7 @@ document.getElementById('prevBtn').addEventListener('click', () => {
     resetTimer();
 });
 
-// Перемикання через індикатори (dots)
+
 dots.forEach(dot => {
     dot.addEventListener('click', (e) => {
         showSlide(parseInt(e.target.dataset.index));
@@ -44,7 +49,10 @@ dots.forEach(dot => {
     });
 });
 
+
+let autoTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
+
 function resetTimer() {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => showSlide(currentSlide + 1), 5000);
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
 }
